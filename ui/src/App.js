@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 
-import Login from './components/Login'
-import logo from './logo.svg';
+import NormalLoginForm from './components/login/Login'
+import RegistrationForm from './components/register/Register'
+
 import './App.css';
+import 'antd/dist/antd.css';
+import Chat from './components/chat/Chat';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React/Electron</h2>
-        </div>
-        <Login/>
-        <p className="App-intro">
-          Hello Electron!
-        </p>
+        <h1>CodeSync</h1>
+        {/* <RegistrationForm/> */}
+        {/* <div className="login-form"><NormalLoginForm/></div> */}
+        <Chat/>
       </div>
     );
   }

@@ -9,6 +9,7 @@
     "electron-builder": "^20.38.3"
   },
   "dependencies": {
+    "antd": "^3.11.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   },
