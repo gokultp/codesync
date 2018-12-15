@@ -22,8 +22,7 @@
     "electron": "electron .",
     "dev": "nf start -p 3000",
     "dist": "electron-builder",
-    "pack": "electron-builder --dir",
-    "postinstall": "electron-builder install-app-deps"
+    "pack": "electron-builder --dir"
   },
   "build": {
     "appId": "csync",
