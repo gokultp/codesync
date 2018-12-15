@@ -1,16 +1,22 @@
-.App {
-  text-align: center;
+body {
+  background-color: #d0e1d4;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App {
+  text-align: center;
+  font-family: sans-serif;
 }
+
+.App > h1 {
+  font-weight: 500;
+  font-size: 2.5em;
+}
+
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  height: 10%;
+  padding: 2%;
   color: white;
 }
 
@@ -18,11 +24,42 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.login-form {
+  width: 50vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.login-form {
-  
+/* .login-component {
+} */
+.ant-form-item-control {
+  display: flex;
+  justify-content: space-between;
 }
+
+.ant-form-item-control > a {
+  align-content: flex-end;
+}
+/* .ant-form-item-control {
+  d;
+} */
+
+.ant-form-item {
+  flex-basis: 33%;
+  flex-grow: 1;
+}
+
+.ant-form-item:last-child{
+  align-items:flex-end;
+}
+/* #components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}
+  */
