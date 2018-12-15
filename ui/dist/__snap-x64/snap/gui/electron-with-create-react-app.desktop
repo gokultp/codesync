@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=electron-with-create-react-app
-Comment=
-Exec=electron-with-create-react-app
-Terminal=false
-Type=Application
-Icon=${SNAP}/meta/gui/icon.png
-StartupWMClass=electron-with-create-react-app
-Categories=Utility;
