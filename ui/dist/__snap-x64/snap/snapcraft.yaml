@@ -1,0 +1,63 @@
+name: electron-with-create-react-app
+version: 0.1.0
+summary: electron-with-create-react-app
+description: ''
+confinement: strict
+grade: stable
+architectures:
+  - amd64
+apps:
+  electron-with-create-react-app:
+    command: command.sh
+    plugs:
+      - desktop
+      - desktop-legacy
+      - home
+      - x11
+      - unity7
+      - browser-support
+      - network
+      - gsettings
+      - pulseaudio
+      - opengl
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR
+      PATH: '$SNAP/usr/sbin:$SNAP/usr/bin:$SNAP/sbin:$SNAP/bin:$PATH'
+      LD_LIBRARY_PATH: '$SNAP_LIBRARY_PATH:$SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/lib/x86_64-linux-gnu/pulseaudio:$SNAP/usr/lib/x86_64-linux-gnu/mesa-egl:$SNAP/lib:$SNAP/usr/lib:$SNAP/lib/x86_64-linux-gnu:$SNAP/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH:$SNAP/lib:$SNAP/usr/lib:$SNAP/lib/x86_64-linux-gnu:$SNAP/usr/lib/x86_64-linux-gnu'
+    adapter: none
+parts:
+  app:
+    plugin: nil
+    stage-packages:
+      - libasound2
+      - libgconf2-4
+      - libnotify4
+      - libnspr4
+      - libnss3
+      - libpcre3
+      - libpulse0
+      - libxss1
+      - libxtst6
+      - libappindicator1
+      - libsecret-1-0
+    after:
+      - desktop-gtk2
+  desktop-gtk2:
+    override-build: |-
+      set -x
+      snapcraftctl build
+      export XDG_DATA_DIRS=$SNAPCRAFT_PART_INSTALL/usr/share
+      update-mime-database $SNAPCRAFT_PART_INSTALL/usr/share/mime
+
+      for dir in $SNAPCRAFT_PART_INSTALL/usr/share/icons/*/; do
+        if [ -f $dir/index.theme ]; then
+          if which gtk-update-icon-cache-3.0 &> /dev/null; then
+            gtk-update-icon-cache-3.0 -q $dir
+          elif which gtk-update-icon-cache &> /dev/null; then
+            gtk-update-icon-cache -q $dir
+          fi
+        fi
+      done
+    stage:
+      - '-./usr/share/fonts/**'
+icon: snap/gui/icon.png
