@@ -1,0 +1,31 @@
+.contact{
+    margin: 15px;
+    max-width: 100px;
+    align-content: center;
+}
+
+.contact:hover{
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.contact-pic{
+    width:75px;
+    height: 75px;
+    border-radius: 38px;
+    background-color: rgb(247, 34, 34);
+    text-transform: capitalize;
+    font-size: 30px;
+    padding-top:16px;
+    font-weight: bold;
+    color: white;
+}
+
+.contact-name{
+    width:75px;
+    height: 75px;
+    border-radius: 38px;
+    font-size: 16px;
+    padding-top:16px;
+    font-weight: bold;
+}

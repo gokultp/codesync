@@ -1,2 +1,7 @@
 aaaaaaaxxxxxxx
-bbbbaaaaaaaaaaaaaagokul jhfgjhhjhshdhs
+bbbbaaaaaaaaaaaaaagokul jhfgjhhjhshdhssaaaa111111111111 111111
+#include<stdio.h>
+int main(){
+    printf("%d", 1);
+    return 0;aa
+}

@@ -4,12 +4,13 @@
   "private": true,
   "devDependencies": {
     "electron": "^1.7.9",
+    "electron-builder": "^20.38.3",
     "foreman": "^3.0.1",
-    "react-scripts": "^2.1.1",
-    "electron-builder": "^20.38.3"
+    "react-scripts": "^2.1.1"
   },
   "dependencies": {
     "antd": "^3.11.2",
+    "peerjs": "^0.3.18",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   },

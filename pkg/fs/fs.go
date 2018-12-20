@@ -7,19 +7,10 @@ import (
 	"path/filepath"
 )
 
-// CacheFiles will cache files in the given path
-func CacheFiles(path string) error {
-	info, err := os.Lstat(path)
-	if err != nil {
-		return err
-	}
-	return copy(path, "/tmp/sync", info)
-}
-
-// copy dispatches copy-funcs according to the mode.
+// Copy dispatches copy-funcs according to the mode.
 // Because this "copy" could be called recursively,
 // "info" MUST be given here, NOT nil.
-func copy(src, dest string, info os.FileInfo) error {
+func Copy(src, dest string, info os.FileInfo) error {
 	if info.Mode()&os.ModeSymlink != 0 {
 		return lcopy(src, dest, info)
 	}
@@ -74,7 +65,7 @@ func dcopy(srcdir, destdir string, info os.FileInfo) error {
 
 	for _, content := range contents {
 		cs, cd := filepath.Join(srcdir, content.Name()), filepath.Join(destdir, content.Name())
-		if err := copy(cs, cd, content); err != nil {
+		if err := Copy(cs, cd, content); err != nil {
 			// If any error, exit immediately
 			return err
 		}
@@ -90,4 +81,13 @@ func lcopy(src, dest string, info os.FileInfo) error {
 		return err
 	}
 	return os.Symlink(src, dest)
+}
+
+// IsDir checks if it is a directory
+func IsDir(path string) (bool, error) {
+	fileInfo, err := os.Stat(path)
+	if err != nil {
+		return false, err
+	}
+	return fileInfo.IsDir(), err
 }
